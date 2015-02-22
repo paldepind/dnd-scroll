@@ -47,6 +47,8 @@
 			var elm = document.createElement('div');
       elm.innerHTLM = '&nbsp;';
       elm.id = isTop ? topTriggerId : bottomTriggerId;
+      elm.classList.add('scroll-trigger');
+      return elm;
     }
     function addListeners(elm, isTop) {
       elm.addEventListener('dragenter', function(e) {
@@ -67,15 +69,15 @@
       body.appendChild(elm);
       return elm;
     }
-		
-		var topTriggerElm = document.getElementById(topTriggerId) || createTrigger(true);
+
+    var topTriggerElm = document.getElementById(topTriggerId) || createTrigger(true);
     addListeners(topTriggerElm, true);
 		
-		var bottomTriggerElm = document.getElementById(bottomTriggerId) || createTrigger(false);
+    var bottomTriggerElm = document.getElementById(bottomTriggerId) || createTrigger(false);
     addListeners(bottomTriggerElm, false);
 
     document.addEventListener('dragstart', function(e) {
-      wasAtTop = true, wasAtBottom = true;
+      wasAtTop = wasAtBottom = true;
       updateClasses();
     });
 

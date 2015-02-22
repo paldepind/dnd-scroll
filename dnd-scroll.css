@@ -1,0 +1,31 @@
+.scroll-trigger {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 0;
+  z-index: 9999;
+  transition: .2s ease-in height;
+  -webkit-transition: height .2s;
+  overflow: hidden;
+}
+#top-scroll-trigger *, #bottom-scroll-trigger * {
+  pointer-events: none;
+}
+.scroll-trigger.top-drag-started,
+.scroll-trigger.bottom-drag-started {
+  height: 100px;
+}
+#top-scroll-trigger {
+  top: 0;
+  background-image: -webkit-linear-gradient(bottom, transparent, rgba(0, 0, 0, .5)); /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+  background-image:    -moz-linear-gradient(bottom, transparent, rgba(0, 0, 0, .5)); /* For Firefox (3.6 to 15) */
+  background-image:      -o-linear-gradient(bottom, transparent, rgba(0, 0, 0, .5)); /* For old Opera (11.1 to 12.0) */ 
+  background-image:         linear-gradient(to top, transparent, rgba(0, 0, 0, .5)); /* Standard syntax; must be last */
+}
+#bottom-scroll-trigger {
+  bottom: 0;
+  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, .5)); /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+  background-image:    -moz-linear-gradient(top, transparent, rgba(0, 0, 0, .5)); /* For Firefox (3.6 to 15) */
+  background-image:      -o-linear-gradient(top, transparent, rgba(0, 0, 0, .5)); /* For old Opera (11.1 to 12.0) */ 
+  background-image:         linear-gradient(to bottom, transparent, rgba(0, 0, 0, .5)); /* Standard syntax; must be last */
+}
